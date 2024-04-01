@@ -2,14 +2,15 @@
  * @Author: heyong
  * @Date: 2024-04-01 18:14:09
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 18:47:02
+ * @LastEditTime: 2024-04-01 19:01:06
  */
 import { Suspense } from 'react';
-import { Outlet, NavLink } from 'react-router-dom';
+import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 
 import styled from 'styled-components';
 
 const Home = () => {
+    const navigation = useNavigate();
     return (
         <Wrapper>
             <div className="header"></div>
@@ -25,6 +26,17 @@ const Home = () => {
                         <NavLink to="/manage" end>
                             manage
                         </NavLink>
+                    </div>
+                    <div className="menu_item">
+                        {/* <NavLink to="/file/123" end>
+                            file
+                        </NavLink> */}
+                        {/* 编程式传参 */}
+                        {/* <NavLink to={{ pathname: '/file', search: '?sort=name&id=2222' }} end>
+                            file
+                        </NavLink> */}
+                        {/* 命令式传参 */}
+                        <button onClick={() => navigation({ pathname: '/file', search: '?sort=name&id=2' })}>file</button>
                     </div>
                 </aside>
                 <section>
