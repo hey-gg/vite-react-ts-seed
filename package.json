@@ -7,13 +7,21 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --fix --ext .ts,.tsx,.js,.jsx --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint-staged": {
+      "src/**/*.{js,jsx,ts,tsx,json}": [
+        "yarn run lint",
+        "prettier --write"
+      ]
+    }
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@types/node": "^20.12.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
@@ -27,6 +35,8 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
