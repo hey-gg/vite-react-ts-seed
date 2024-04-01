@@ -2,7 +2,7 @@
  * @Author: heyong
  * @Date: 2024-04-01 18:14:09
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 19:06:43
+ * @LastEditTime: 2024-04-01 19:53:41
  */
 import { Suspense } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
@@ -25,6 +25,12 @@ const Home = () => {
                         {/* 声明式导航 默认类名为active。end表示精准匹配，否则当访问/manage/123时，类名也为active */}
                         <NavLink to="/manage" end>
                             manage
+                        </NavLink>
+                    </div>
+                    <div className="menu_item">
+                        {/* 声明式导航 默认类名为active。end表示精准匹配，否则当访问/manage/123时，类名也为active */}
+                        <NavLink to="/info" end>
+                            info
                         </NavLink>
                     </div>
                     <div className="menu_item">

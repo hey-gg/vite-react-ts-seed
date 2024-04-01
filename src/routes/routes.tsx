@@ -2,7 +2,7 @@
  * @Author: heyong
  * @Date: 2024-04-01 18:29:00
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 19:28:53
+ * @LastEditTime: 2024-04-01 19:55:13
  */
 /* eslint-disable react-refresh/only-export-components */
 import ErrorBoundary from '@/pages/errorBoundary';
@@ -13,6 +13,7 @@ const Home = lazy(() => import('../pages/home'));
 const User = lazy(() => import('../pages/user'));
 const Manage = lazy(() => import('../pages/manage'));
 const File = lazy(() => import('../pages/files'));
+const Info = lazy(() => import('../pages/info'));
 
 
 const routes = [
@@ -40,6 +41,10 @@ const routes = [
             {
                 path: '/file',
                 element: <File />,
+            },
+            {
+                path: '/info',
+                element: <Info />,
             },
         ]
     },
