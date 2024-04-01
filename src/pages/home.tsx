@@ -2,7 +2,7 @@
  * @Author: heyong
  * @Date: 2024-04-01 18:14:09
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 19:01:06
+ * @LastEditTime: 2024-04-01 19:06:43
  */
 import { Suspense } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
@@ -28,6 +28,7 @@ const Home = () => {
                         </NavLink>
                     </div>
                     <div className="menu_item">
+                        {/* 使用state传参 特点：参数不会显示在路径上 */}
                         {/* <NavLink to="/file/123" end>
                             file
                         </NavLink> */}
@@ -35,8 +36,10 @@ const Home = () => {
                         {/* <NavLink to={{ pathname: '/file', search: '?sort=name&id=2222' }} end>
                             file
                         </NavLink> */}
+                        <NavLink to="/file" state={{ id: 1 }} end>  file</NavLink>
                         {/* 命令式传参 */}
-                        <button onClick={() => navigation({ pathname: '/file', search: '?sort=name&id=2' })}>file</button>
+                        {/* <button onClick={() => navigation({ pathname: '/file', search: '?sort=name&id=2' })}>file</button> */}
+                        <button onClick={() => navigation("/file", { state: { id: "2" } })}>  file</button>
                     </div>
                 </aside>
                 <section>
