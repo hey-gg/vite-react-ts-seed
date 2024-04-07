@@ -2,7 +2,7 @@
  * @Author: heyong
  * @Date: 2024-04-01 19:43:21
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 19:45:31
+ * @LastEditTime: 2024-04-07 17:09:17
  */
 import { produce } from 'immer';
 import { create } from 'zustand';
@@ -15,7 +15,7 @@ interface UserInfo {
 interface UserState {
     userInfo: UserInfo;
     token: string;
-    updateUserInfo: (parmas: UserInfo) => void;
+    updateUserInfo: (params: UserInfo) => void;
     updateAge: (params: number) => void;
     updateToken: (params: string) => void;
 }
