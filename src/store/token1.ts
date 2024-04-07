@@ -28,6 +28,7 @@ const useTokenStore = create<TokenState>()(
             },
             setToken: (token: string) => set(produce((state) => state.user.token = token)),
         }),
+        // 默认会将store中的所有字段都缓存，可以通过partialize指定要缓存的字段
         {
             name: 'token', //存储的名称
             storage: createJSONStorage(() => localStorage), // 默认存储到 localStorage，可设置为sessionStorage
