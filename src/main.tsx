@@ -2,10 +2,11 @@
  * @Author: heyong
  * @Date: 2024-04-01 15:52:38
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 18:34:53
+ * @LastEditTime: 2024-04-08 09:55:28
  */
 import { Suspense } from 'react';
 import { RouterProvider } from 'react-router-dom';
+import './index.scss';
 
 import ReactDOM from 'react-dom/client';
 

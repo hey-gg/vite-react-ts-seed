@@ -2,7 +2,7 @@
  * @Author: heyong
  * @Date: 2024-04-01 15:52:38
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-01 16:20:43
+ * @LastEditTime: 2024-04-08 09:53:38
  */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
@@ -15,6 +15,13 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve("./src"), // @代替src  ts 路径映射在修改tsconfig.json时通过baseUrl与paths属性已完成
+    },
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/styles/index.scss";',
+      },
     },
   },
 })
