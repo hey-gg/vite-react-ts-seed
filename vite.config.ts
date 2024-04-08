@@ -2,9 +2,11 @@
  * @Author: heyong
  * @Date: 2024-04-01 15:52:38
  * @LastEditors: heyong
- * @LastEditTime: 2024-04-08 10:52:15
+ * @LastEditTime: 2024-04-08 10:59:21
  */
 import { defineConfig, loadEnv } from 'vite' //使用 loadEnv 读取环境变量
+import viteCompression from 'vite-plugin-compression'
+import { visualizer } from 'rollup-plugin-visualizer';
 import react from '@vitejs/plugin-react'
 import path from "path";  //这个path用到了安装的@types/node
 
@@ -23,7 +25,13 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  // 默认情况下插件在开发 (serve) 和生产 (build) 模式中都会调用，使用 apply 属性指明它们仅在 'build' 或 'serve' 模式时调用
+  plugins: [{
+    ...viteCompression(),
+    apply: 'build',   // 生成 .gz 插件仅需在打包时使用
+  },
+  visualizer({ open: true }),  // 分析生成包的大小
+  ],
   //这里进行配置别名
   resolve: {
     alias: {
@@ -37,4 +45,17 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    rollupOptions: {   // vite的打包基于rollup
+      output: { //  js和css文件夹分离
+        chunkFileNames: "static/js/[name]-[hash].js",
+        entryFileNames: "static/js/[name]-[hash].js",
+        assetFileNames: "static/[ext]/[name]-[hash].[ext]",
+        manualChunks: {  // 分包
+          react: ['react', 'react-dom', 'react-router-dom', 'zustand'],
+          antd: ['antd'],
+        },
+      },
+    },
+  }
 })
